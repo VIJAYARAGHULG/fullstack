@@ -1,0 +1,144 @@
+
+const reply = [
+    //0 
+    ["Hello ??", "Hi ??", "Hey ??", "Hi there ??"],
+    //1
+    [
+        "Fine... how are you ?",
+        "Pretty well, how are you ?",
+        "Fantastic, how are you ?"
+    ],
+    //2
+    [
+        "Nothing much"
+    ],
+    //3
+    ["Glad to hear it"],
+    //4
+    ["Cheer up buddy ??","Things will get better ??"],
+    //5
+    ["What about ?", "Once upon a time..."],
+    //6
+    ["You're welcome", "No problem"],
+    //7
+    [" Goodbye", "See you later"],
+    // 8
+    ["You disappointed me ??"],
+    // 9
+    ["RohChat, what's your's ?"],
+    // 10
+    ["Good Morning ??"],
+    // 11
+    ["Good Night ??"],
+    // 12
+    ["Good Evening ??"],
+    //13
+    ["i love you too"],
+    //14
+    ["no"]
+];
+
+const alternative = [
+    " ??",
+    "Ok",
+    "Yup",
+    "Nope"
+];
+
+function compare(triggerArray, replyArray, text) {
+    let item;
+    for (let x = 0; x < triggerArray.length; x++) {
+        for (let y = 0; y < replyArray.length; y++) {
+            if (triggerArray[x][y] == text) {
+                items = replyArray[x];
+                item = items[Math.floor(Math.random() * items.length)];
+            }
+        }
+    }
+    return item;
+}
+
+// menu
+const open= document.querySelector('#open');
+const close= document.querySelector('#close');
+const nav= document.querySelector('.mobile__navbar');
+open.addEventListener('click', function() {
+    nav.classList.add("show");
+    open.style.display="none";
+    close.style.display="block";
+})
+
+close.addEventListener('click', function() {
+    nav.classList.remove('show');
+    open.style.display="block";
+    close.style.display="none";
+})
+
+const screen_drop= document.querySelector('#screen__drop') ;
+const layout_drop= document.querySelector('#layout__drop') ;
+
+screen__drop.addEventListener('click', function() {
+    document.querySelector('.screen__colors').classList.toggle('appear');
+    layout__drop.classList.toggle('click_one_at_a_time');
+})
+
+layout__drop.addEventListener('click', function() {
+    document.querySelector('.layout__colors').classList.toggle('appear');
+    screen__drop.classList.toggle('click_one_at_a_time');
+})
+
+// about
+document.querySelector('.about').addEventListener('click', function() {
+    document.querySelector('.about__cloud').classList.toggle('show');
+})
+
+// changing colors
+const mobile_layout= document.querySelector('.mobile__layout');
+const mobile_screen= document.querySelector('.mobile__screen');
+const mobile_edge= document.querySelector('.mobile__screen__edge');
+
+// for layout
+document.querySelector('.layout__black__icon').addEventListener('click', function() {
+    mobile_layout.style="background:black";
+    mobile_edge.style="background:black";
+})
+
+document.querySelector('.layout__purple__icon').addEventListener('click', function() {
+    mobile_layout.style="background:#7F00FF";
+    mobile_edge.style="background:#7F00FF";
+})
+
+document.querySelector('.layout__green__icon').addEventListener('click', function() {
+    mobile_layout.style="background:greenyellow";
+    mobile_edge.style="background:greenyellow";
+})
+
+document.querySelector('.layout__pink__icon').addEventListener('click', function() {
+    mobile_layout.style="background:pink";
+    mobile_edge.style="background:pink";
+})
+
+// for screen
+document.querySelector('.screen__black__icon').addEventListener('click', function() {
+    mobile_screen.style="background:black";
+})
+
+document.querySelector('.screen__purple__icon').addEventListener('click', function() {
+    mobile_screen.style="background:#7F00FF";
+})
+
+document.querySelector('.screen__green__icon').addEventListener('click', function() {
+    mobile_screen.style="background:greenyellow";
+})
+
+document.querySelector('.screen__pink__icon').addEventListener('click', function() {
+    mobile_screen.style="background:pink";
+})
+
+// intro
+const intro= document.querySelector('.intro');
+const start= document.querySelector('#get__started');
+
+start.addEventListener('click', function() {
+    intro.classList.add('fade__intro');
+})
